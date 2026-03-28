@@ -3,6 +3,7 @@ name = "crc-stream"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+# Docker uses Ubuntu's python3 (3.12). cocotb 2.0.x supports up to 3.13 — do not use >=3.13 alone or uv sync fails on 3.12.
 requires-python = ">=3.12,<3.14"
 dependencies = [
     "cocotb>=2.0.1",
