@@ -1,3 +1,8 @@
 crc_check.py
 crc_gen.py
 tb.v
+.venv/
+pyproject.toml
+uv.lock
+__pycache__/
+sim_build/
