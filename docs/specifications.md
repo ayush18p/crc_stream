@@ -1,6 +1,6 @@
 Design a parameterizable RTL module in Verilog that implements a streaming data processor over an AXI-Stream interface.
 
-The module must support three modes of operation:
+The module must support two modes of operation:
 
 1. Pass-through mode (no modification to data)
 2. CRC append mode (compute CRC-32 over packet and append it)
@@ -24,6 +24,7 @@ The module must support three modes of operation:
 
   * Compute CRC-32 over entire packet
   * Append 4-byte CRC after last data byte
+  * It should compute for N-1 Streams, at the Nth Stream a dummy packet of tens 0's will be sent at which drop+packet is asserted
 
 * In pass-through mode:
 
