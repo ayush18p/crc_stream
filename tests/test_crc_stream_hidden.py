@@ -43,7 +43,7 @@ async def run_test(dut):
     for _ in range(5):
         await RisingEdge(dut.clk)
 
-    num_pkts = random.randint(2, 10)
+    num_pkts = random.randint(2, 1023)
     dut.stream_number.value = num_pkts
 
     # ---------------- OUTPUT MONITOR ----------------
@@ -78,7 +78,7 @@ async def run_test(dut):
         if pkt == num_pkts - 1:
             pkt_len = 10
         else:
-            pkt_len = random.randint(12, 40)
+            pkt_len = random.randint(12, 250)
 
         f_in.write(f"\nPACKET {pkt} LEN {pkt_len}\n")
 
