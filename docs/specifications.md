@@ -47,6 +47,7 @@ The module must support two modes of operation:
 * The module must be synthesizable
 * The agent must save input stream data in hex format and end of each stream the crc should be stored as CRC_VALUE in a input_data.txt file
 * The agent should also store the output stream data with its corresponding crc as stream output in a output_data.txt
+* The final CRC need not be XORED with 0xFFFFFFFF. You can keep it generic
 
 ### Deliverables:
 
