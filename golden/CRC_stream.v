@@ -128,6 +128,16 @@ begin
 end
 
 reg restart;//from 2nd sample to adjust for 1 cycle delay
+reg M_AXIS_TLAST_r;
+
+always@(posedge clk or negedge rstn) begin
+    if(!rstn) begin
+        M_AXIS_TLAST_r <= 0;
+    end
+    else begin
+        M_AXIS_TLAST_r <= M_AXIS_TLAST;
+    end
+end
 
 always @(posedge clk or negedge rstn) begin
     if (!rstn) 
@@ -146,7 +156,7 @@ end
 end
 
  
- assign   xcrc_en = (M_AXIS_TLAST) ? rd_en : rd_en_r && rd_en;
+ assign   xcrc_en = (M_AXIS_TLAST_r) ? rd_en : rd_en_r && rd_en;
 
 //OUTPUT Data formatter
 
@@ -160,7 +170,7 @@ begin
     else begin
         case(xstate)
         xIDLE : begin
-            if(M_AXIS_TLAST)begin
+            if(M_AXIS_TLAST_r)begin //added r
              M_AXIS_TDATA <= fifo_data;
              M_AXIS_TLAST <= 0;
              end
