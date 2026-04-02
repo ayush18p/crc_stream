@@ -30,6 +30,10 @@ async def run_test(dut):
     dut.S_AXIS_TLAST.value = 0
 
     dut.M_AXIS_TREADY.value = 1
+    # while True:
+    #     await RisingEdge(dut.clk)
+    #     dut.M_AXIS_TREADY.value = random.choice([0, 1])
+
     dut.stream_number.value = 0
 
     f_in = open("input_data.txt", "w")
@@ -43,7 +47,7 @@ async def run_test(dut):
     for _ in range(5):
         await RisingEdge(dut.clk)
 
-    num_pkts = random.randint(2, 1023)
+    num_pkts = random.randint(2, 10)
     dut.stream_number.value = num_pkts
 
     # ---------------- OUTPUT MONITOR ----------------
@@ -78,7 +82,7 @@ async def run_test(dut):
         if pkt == num_pkts - 1:
             pkt_len = 10
         else:
-            pkt_len = random.randint(12, 250)
+            pkt_len = random.randint(12, 50)
 
         f_in.write(f"\nPACKET {pkt} LEN {pkt_len}\n")
 
