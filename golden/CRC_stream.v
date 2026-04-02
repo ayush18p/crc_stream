@@ -118,7 +118,7 @@ begin
         xAPPEND : begin
             crc_bcnt <= crc_bcnt + 1;
             if(crc_bcnt == 2'd3)
-                xstate <= xIDLE;
+                xstate <= xCALC;
 
         end
 
@@ -170,7 +170,7 @@ begin
     else begin
         case(xstate)
         xIDLE : begin
-            if(M_AXIS_TLAST_r)begin //added r
+            if(M_AXIS_TLAST)begin
              M_AXIS_TDATA <= fifo_data;
              M_AXIS_TLAST <= 0;
              end
