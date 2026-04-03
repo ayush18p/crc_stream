@@ -5,10 +5,13 @@ module crc_engine(
 
     input       crc_en,
     output reg [31:0] crc_out,
-    output reg  crc_done           
+    output reg  crc_done
 
 );
 
-//Internal Logic to calculate CRC
+// --- CRC_STREAM_STUB_CRC_ENGINE_BEGIN ---
+// CRC_STREAM_MARKER_CRC_ENGINE_IMPLEMENT
+// Internal Logic to calculate CRC
+// --- CRC_STREAM_STUB_CRC_ENGINE_END ---
 
 endmodule
