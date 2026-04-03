@@ -39,15 +39,23 @@ The module must support two modes of operation:
 * Input data is continuous (back-to-back packets allowed without idle cycles)
 * FIFO or buffering may be required but is not mandated — designer must decide
 * CRC Engine Should only have the following ports : `clk`,`rstn`,`data[7:0]`,`crc_en` as inputs and `crc_out [31:0]` and `crc_done` as outputs
+  
+### CRC Requirements
+* Polynomial : 0x04C11DB7
+* Initial CRC : 0xFFFFFFFF
+* Input Refelction : None
+* Output Reflection : None
+* Final XOR : not required
+* Data processing starts from MSB
+* Implement single cycle calculation
 
 ### Additional Requirements:
-
 * The design must ensure correct handling of the final byte in a packet
 * No assumptions should be made about gaps between packets
 * The module must be synthesizable
 * The agent must save input stream data in hex format and end of each stream the crc should be stored as CRC_VALUE in a input_data.txt file
 * The agent should also store the output stream data with its corresponding crc as stream output in a output_data.txt
-* The final CRC need not be XORED with 0xFFFFFFFF. You can keep it generic
+
 
 ### Deliverables:
 
