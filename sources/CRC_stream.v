@@ -14,7 +14,9 @@ module axis_crc_top(
     output reg          M_AXIS_TLAST,
     input               M_AXIS_TREADY,
     
-    output reg          drop_packet
+    output reg          drop_packet,
+    output [31:0]         crc_final,
+    output                crc_done
 
 );
 
