@@ -1,5 +1,5 @@
-module fifo#(parameter WIDTH = 8, 
-            DEPTH = 16) 
+module fifo#(parameter WIDTH = 8,
+            DEPTH = 16)
     (
 
     input                clk,
@@ -11,9 +11,12 @@ module fifo#(parameter WIDTH = 8,
 
     output reg [WIDTH:0]    dout,
     output              empty,
-    output              full                         
+    output              full
 
 );
-    //Internal Logic for FIFO
+// --- CRC_STREAM_STUB_FIFO_BEGIN ---
+// CRC_STREAM_MARKER_FIFO_IMPLEMENT
+// Internal Logic for FIFO
+// --- CRC_STREAM_STUB_FIFO_END ---
 
 endmodule
