@@ -130,9 +130,9 @@ def test_crc_stream_hidden_runner():
     proj_path = Path(__file__).resolve().parent.parent
 
     sources = [
-        proj_path / "golden/fifo.v",
-        proj_path / "golden/crc_engine.v",
-        proj_path / "golden/CRC_stream.v",
+        proj_path / "sources/fifo.v",
+        proj_path / "sources/crc_engine.v",
+        proj_path / "sources/CRC_stream.v",
     ]
 
     runner = get_runner(sim)
