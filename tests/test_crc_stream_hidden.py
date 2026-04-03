@@ -40,7 +40,9 @@ async def run_test(dut):
     for _ in range(5):
         await RisingEdge(dut.clk)
 
-    num_pkts = random.randint(2, 1023)
+    # Cap packet count so broken DUTs hit crc_done timeouts without multi-hour wall-clock runs
+    # (agent bash tool default timeout is HUD_BASH_TIMEOUT, typically 20 minutes).
+    num_pkts = random.randint(2, 64)
     dut.stream_number.value = num_pkts
 
     # ---------------- OUTPUT MONITOR ----------------
